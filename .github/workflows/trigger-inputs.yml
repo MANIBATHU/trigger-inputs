@@ -39,6 +39,7 @@ on:
 
 jobs:
   build-and-deploy:
+    environment: ${{ github.base_ref }}
     runs-on: ubuntu-latest
     steps:
       # Get inputs from workflow_dispatch

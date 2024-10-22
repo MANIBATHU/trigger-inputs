@@ -45,6 +45,7 @@ jobs:
       # Get inputs from workflow_dispatch
       - name: Print workflow inputs
         run: |
+          echo "Environment**: ${{ github.base_ref }}"
           echo "Run tests: ${{ inputs.run-tests }}"
           echo "Test type: ${{ inputs.test-type }}"
           echo "Environment: ${{ inputs.environment }}"

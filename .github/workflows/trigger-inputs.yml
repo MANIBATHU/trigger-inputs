@@ -1,6 +1,11 @@
 name: Triggered Workflow with Various Inputs
 
 on:
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - dev
+      - main
   workflow_dispatch:
     inputs:
       run-tests:

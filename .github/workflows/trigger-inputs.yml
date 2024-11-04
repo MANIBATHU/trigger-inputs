@@ -58,8 +58,12 @@ jobs:
         run: |
           echo "Running tests of type: ${{ inputs.test-type }}"
 
-      - name: Wait for 60 seconds
-        run: sleep 60
+      - name: Custom Wait with Logging
+        run: |
+          for i in $(seq 1 5); do
+            echo "Waiting... Minute $i"
+            sleep 60
+          done
 
   deploy-dev:
     runs-on: 'ubuntu-latest'

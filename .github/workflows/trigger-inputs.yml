@@ -58,9 +58,16 @@ jobs:
         run: |
           echo "Running tests of type: ${{ inputs.test-type }}"
 
+      - name: Custom Wait with Logging
+        run: |
+          for i in $(seq 1 5); do
+            echo "Waiting... Minute $i"
+            sleep 60
+          done
+
   deploy-dev:
     runs-on: 'ubuntu-latest'
-    environment: 'dev'
+    environment: ${{ github.base_ref }}
     needs: build-and-deploy
     steps:
       - name: Checkout repository
